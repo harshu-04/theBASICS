@@ -1,0 +1,28 @@
+//input n elements using dma and count total no of even and odd nos present
+#include<stdio.h>
+#include<stdlib.h>
+int main ()
+{
+	int *p;
+	int i,n,o=0,e=0;
+	printf("Enter number of elements:");
+    scanf("%d",&n);
+    p = (int *)calloc(n,sizeof(int));
+    printf("enter the elements \n");
+    for(i=0;i<n;i++)
+    {
+    	scanf("%d",(p+i));
+    }
+    for(i=0;i<n;i++)
+    {
+     	if(*(p+i)%2==0)
+     	e++;
+     	else 
+     	o++;
+     }
+     printf("Even count %d \n ",e);
+     printf("Odd count %d \n",o);
+     return 0;
+     }
+     
+     	
