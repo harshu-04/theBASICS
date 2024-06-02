@@ -21,7 +21,7 @@ int main ()
     printf ("file error");
     else
     {
-        while(ch=fgetc(fp)!= EOF)
+        while((ch=fgetc(fp))!= EOF)
         {
             fputc(ch,f);
         }
@@ -35,7 +35,7 @@ int main ()
     {
         while((ch=fgetc(f))!= EOF)
         {
-            printf("%c",&ch);
+            printf("%c",ch);
         }
     }
      fclose(f);
