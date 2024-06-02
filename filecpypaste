@@ -33,7 +33,7 @@ int main ()
     printf("file error");
     else
     {
-        while((ch=fgetc())!= EOF)
+        while((ch=fgetc(f))!= EOF)
         {
             printf("%c",&ch);
         }
