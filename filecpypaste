@@ -28,5 +28,16 @@ int main ()
     }
     fclose(fp);
     fclose(f);
+    f=fopen("output.txt","r");
+    if(f==NULL)
+    printf("file error");
+    else
+    {
+        while((ch=fgetc())!= EOF)
+        {
+            printf("%c",&ch);
+        }
+    }
+     fclose(f);
     return 0;
 }
