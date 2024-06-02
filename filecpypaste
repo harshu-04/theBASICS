@@ -1,0 +1,32 @@
+//wap to input in a file named input.txt and copy the contents of the file to output.txt
+#include<stdio.h>
+int main ()
+{
+    FILE *fp,*f;
+    char ch;
+    fp=fopen("input.txt","w");
+    if(fp==NULL)
+    printf("file error");
+    else
+    {
+        while((ch=getchar())!= EOF)
+        {
+            fputc(ch,fp);
+        }
+    }
+    fclose(fp);
+    fp=fopen("input.txt","r");
+    f=fopen("output.txt","w");
+    if(f==NULL || fp==NULL)
+    printf ("file error");
+    else
+    {
+        while(ch=fgetc(fp)!= EOF)
+        {
+            fputc(ch,f);
+        }
+    }
+    fclose(fp);
+    fclose(f);
+    return 0;
+}
