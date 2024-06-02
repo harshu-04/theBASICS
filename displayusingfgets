@@ -1,0 +1,31 @@
+/*Write a C program to read the contents of a file named “input.txt” line by line using fgets and display each line on the console.
+If the file cannot be opened, display an error message.
+Use return 0 and return 1 for indicating success and failure respectively.*/
+#include <stdio.h>
+
+// The main function to read from a file using fgets and display its contents.
+int main() {
+    // Define the file pointer and the buffer size
+    FILE *file;
+    char buffer[256]; // Buffer to store each line of the file
+
+    // Open the file in read mode
+    file = fopen("input.txt", "r");
+    if (file == NULL) {
+        // If the file cannot be opened, display an error message and exit
+        perror("Error opening file");
+        return 1; // Return 1 to indicate failure
+    }
+
+    // Use fgets to read each line of the file until the end of the file (EOF) is reached
+    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+        // Display the line read from the file
+        printf("%s", buffer);
+    }
+
+    // Close the file after reading is complete
+    fclose(file);
+    
+    // Return 0 to indicate success
+    return 0;
+}
