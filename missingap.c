@@ -1,4 +1,4 @@
-//to find missing element in an ap
+//to find missing element in an ap for consecutive missing
 #include<stdio.h>
 #include<stdlib.h>
 int main(){
