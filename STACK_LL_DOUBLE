@@ -1,0 +1,85 @@
+//stack using ll
+#include<stdio.h>
+#include<stdlib.h>
+typedef struct stack{
+	int data;
+	struct stack *next;
+	}s;
+void push(s**);
+void pop(s**);
+void disp(s*);
+main()
+{
+	s *top=NULL;
+	int ch;
+	do
+	{
+	printf("\n1.Push the element\n2.Pop the element\n3.Show\n4.End");  
+            printf("\n\nEnter the choice: ");  
+            scanf("%d", &ch);  
+            switch (ch) 
+            {  
+            case 1: push(&top);
+            	break;
+            case 2: pop(&top);
+            	break;
+              case 3:  
+                disp(top);  
+                break;  
+            case 4:  
+                exit(0);  
+            default:  
+                printf("\nInvalid choice!!");  
+            } 
+        }   while(ch<=4);
+    }  
+    void push(s **tp)
+    {
+    	s *p=NULL;
+    	p=(s*)malloc(sizeof(s));
+    	if(p!=NULL)
+    	{
+    		printf("enter \n");
+    		scanf("%d",&(p->data));
+    		p->next=*tp;
+    		*tp=p;
+    		}
+    		else
+    		printf("MEMORY NOT ALLOCATED\n");
+    		
+    	}
+    	
+    void pop(s **tp)
+    {
+    	s *p=NULL;
+    	if(*tp==NULL)
+    	{
+    		printf("EMPTY STACK \n");
+    	}
+    	else
+    	{
+    		p=*tp;
+    		printf("POPPED %d \n", ((*tp)->data));
+    		*tp=(*tp)->next;
+    		free(p);
+    	}
+    	}
+    void disp(s *tp)
+    	{
+    	if(tp==NULL)
+    	{
+    		printf("EMPTY \n");
+    	}
+    	else
+    	{
+    		
+		while((tp)!=NULL)
+		{
+			printf("%d \n",(tp)->data);
+			tp=(tp)->next;
+			}
+			}
+			
+}
+    		
+    
