@@ -1,0 +1,89 @@
+/*Consider a Circular linked list with a pointer, Ptr. 
+Write a C function to insert a new node before the node pointed by pointer Ptr, in the linked list.*/
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct sll {
+    int d;
+    struct sll* next;
+} s;
+s* insert(s*);
+void disp(s*);
+s* insertfir(s*);
+int main() {
+    s* ptr = NULL;
+    int c;
+    do {
+        printf("1.insert\n2.disp \n3.exit\n4.insert before first\n");
+        printf("enter your choice\n");
+        scanf("%d",&c);
+        switch(c)
+        {
+            case 1: ptr=insert(ptr);
+                    break;
+            case 2: disp(ptr);
+                    break;
+            case 3: exit(0);
+            case 4:
+                    ptr=insertfir(ptr);
+                    break;
+            }
+    } while (c<=4);
+}
+s* insert(s* ptr)
+{
+    s*p=NULL;
+    p = (s*)malloc(sizeof(s));
+    if (p != NULL) {
+        printf("enter the data\n");
+        scanf("%d", &p->d);
+        p->next=NULL;
+        if(ptr==NULL)
+        {
+            p->next=p;
+            return p;
+        }
+        s* t=ptr;
+        while(t->next!=ptr)
+        t=t->next;
+        t->next=p;
+        p->next=ptr;
+    }
+    return ptr;
+}
+void disp(s* ptr)
+{
+         if(ptr==NULL)
+         {
+                printf("emmpty\n");
+                return;
+         }
+         s* t=ptr;
+        while(t->next!=ptr)
+        {
+            printf("%d  ",t->d);
+            t=t->next;
+        }
+         printf("%d  ",t->d);
+}
+s* insertfir(s*ptr)
+{
+    s*p=NULL;
+    p = (s*)malloc(sizeof(s));
+    if (p != NULL) {
+        printf("enter the data\n");
+        scanf("%d", &p->d);
+        p->next=NULL;
+        if(ptr==NULL)
+        {
+            p->next=p;
+            return p;
+        }
+        p->next=ptr;
+         s* t=ptr;
+        while(t->next!=ptr)
+        t=t->next;
+        t->next=p;
+        ptr=p;
+    }
+    return ptr;
+}
