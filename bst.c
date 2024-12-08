@@ -25,7 +25,7 @@ int main()
  						scanf("%d",&x);
  						ins(&root,x);
  						break;
- 			case 2:	printf("pre order : ");
+ 			case 2:	printf("displaying : ");
  						pre(root);
  						printf("\npost order : ");
  						post(root);
